@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from 'axios';
 import BlogsList from "./components/BlogsList";
 import UpdateBlog from "./components/UpdateBlog";
+import CreateBlog from "./components/CreateBlog";
 
 function App() {
   // state
@@ -145,37 +146,21 @@ function App() {
             blogs={blogs} 
             deleteBlog={deleteBlog} 
             toggleUpdate={toggleUpdate} 
-          />
+        />
 
         <UpdateBlog 
             updateForm={updateForm} 
             updateBlog={updateBlog} 
             handleUpdate={handleUpdate} 
-          />
+        />
 
 
-        {
-          !updateForm._id && 
-          <div>
-            <h2>Create Blog</h2>
-            <form onSubmit={handleSubmit}>
-                <input 
-                  onChange={handleChange} 
-                  value={createForm.title} 
-                  type="text" name="title" 
-                  placeholder="Enter Title..." 
-                /><br />
-
-                <textarea 
-                  onChange={handleChange} 
-                  value={createForm.body} 
-                  name="body" rows="4" 
-                  placeholder="Enter Blog..." 
-                /><br />
-                <button type="submit">Create Blog</button>
-            </form>
-        </div>
-        }
+        <CreateBlog 
+            updateForm={updateForm} 
+            createForm={createForm} 
+            handleSubmit={handleSubmit} 
+            handleChange={handleChange} 
+        />
 
     </div>
   );

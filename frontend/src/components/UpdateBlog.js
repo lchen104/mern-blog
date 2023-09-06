@@ -2,7 +2,7 @@ import React from 'react'
 
 const UpdateBlog = ({updateForm, updateBlog, handleUpdate}) => {
 
-if (!updateForm._id) return <></>;
+  if (!updateForm._id) return <></>;
 
   return (
     <div>
