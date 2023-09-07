@@ -31,46 +31,75 @@ const signup = async (req, res) => {
 }
 
 const login = async (req, res) => {
-    // get name, email and password off req body
-    const name = req.body.name;
-    const email = req.body.email; 
-    const password = req.body.password;
 
-    // find the user with the requested id
-    const user = await User.findOne({
-        email: email,
-    })
+    try {
+        // get name, email and password off req body
+        const name = req.body.name;
+        const email = req.body.email; 
+        const password = req.body.password;
 
-    // if user not found, send 401 error (unauthorized) and exit 
-    if (!user) return res.sendStatus(401);
+        // find the user with the requested id
+        const user = await User.findOne({
+            email: email,
+        })
 
-    // compare received password with found password
-    const passwordMatch = bcrypt.compareSync(password, user.password);
+        // if user not found, send 401 error (unauthorized) and exit 
+        if (!user) return res.sendStatus(401);
 
-    // if password doesnt match, send 401 error (unauthorized) and exit
-    if (!passwordMatch) return res.sendStatus(401);
+        // compare received password with found password
+        const passwordMatch = bcrypt.compareSync(password, user.password);
 
-    // create jwt token (1000 = 1 second) / token expires in 30 days
-    const exp = Date.now() + 1000 * 60 * 60 * 24 * 30;
+        // if password doesnt match, send 401 error (unauthorized) and exit
+        if (!passwordMatch) return res.sendStatus(401);
 
-    const token = jwt.sign({ 
-        sub: user._id, 
-        exp: exp,
-    }, process.env.SECRET_KEY);
+        // create jwt token (1000 = 1 second) / token expires in 30 days
+        const exp = Date.now() + 1000 * 60 * 60 * 24 * 30;
 
-    // set the cookie
-    res.cookie("Authorization", token, {})
+        const token = jwt.sign({ 
+            sub: user._id, 
+            exp: exp,
+        }, process.env.SECRET_KEY);
 
-    // respond with status
-    res.sendStatus(200)
+        // set the cookie
+        res.cookie("Authorization", token, {
+            expires: new Date(exp),
+            httpOnly: true,
+            sameSite: 'lax',
+            secure: process.env.NODE_ENV === 'production',
+        })
+
+        // respond with status
+        res.sendStatus(200)
+    } catch (error) {
+        console.log(err);
+        res.sendStatus(400);
+    }
 }
 
 const logout = (req, res) => {
+    try {
+        // delete the cookie
+        res.clearCookie("Authorization");
+        res.sendStatus(200);
+    } catch (error) {
+        console.log(error);
+        res.sendStatus(400);
+    }
+}
 
+const checkAuth = (req, res) => {
+    try {
+        // console.log(req.user);
+        res.sendStatus(200);
+    } catch (error) {
+        console.log(error);
+        res.sendStatus(400);
+    }
 }
 
 module.exports = {
     signup: signup,
     login: login,
     logout: logout,
+    checkAuth: checkAuth,
 }

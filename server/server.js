@@ -6,9 +6,11 @@ if (process.env.NODE_ENV !== 'production') {
 // import dependencies
 const express = require('express');
 const cors = require('cors');
+const cookieParser = require('cookie-parser');
 const connectDb = require('./config/connectDb');
 const blogController = require('./controllers/blogController');
 const userController = require('./controllers/userController');
+const requireAuth = require('./middleware/requireAuth');
 
 // set port to listen
 const PORT = process.env.PORT;
@@ -18,21 +20,27 @@ const app = express();
 
 // configure express app
 app.use(express.json());
-app.use(cors())
+app.use(cookieParser());
+app.use(
+    cors({
+        origin: true,
+        credentials: true,
+    }));
 
 // connect to database
 connectDb();
 
 // routing
-app.post('/signup', userController.signup)
-app.post('/login', userController.login)
-app.get('/logout', userController.logout)
+app.post('/signup', userController.signup);
+app.post('/login', userController.login);
+app.get('/logout', userController.logout);
+app.get('/check-auth', requireAuth, userController.checkAuth);
 
-app.get('/blogs', blogController.fetchBlogs)
-app.get('/blogs/:id', blogController.fetchBlog)
-app.post('/blogs', blogController.createBlog)
-app.put('/blogs/:id', blogController.updateBlog)
-app.delete('/blogs/:id', blogController.deleteBlog)
+app.get('/blogs', blogController.fetchBlogs);
+app.get('/blogs/:id', blogController.fetchBlog);
+app.post('/blogs', blogController.createBlog);
+app.put('/blogs/:id', blogController.updateBlog);
+app.delete('/blogs/:id', blogController.deleteBlog);
 
 
 // start server
