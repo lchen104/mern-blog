@@ -25,7 +25,7 @@ connectDb();
 
 // routing
 app.post('/signup', userController.signup)
-app.post('/signup', userController.login)
+app.post('/login', userController.login)
 app.get('/logout', userController.logout)
 
 app.get('/blogs', blogController.fetchBlogs)

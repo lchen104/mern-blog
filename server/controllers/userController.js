@@ -1,10 +1,12 @@
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+
 const User = require('../models/userModel');
 
 const signup = async (req, res) => {
 
     try {
-        // get the name and email off the body
+        // get the name and email off the req body
         const name = req.body.name;
         const email = req.body.email;
         const password = req.body.password;
@@ -24,12 +26,43 @@ const signup = async (req, res) => {
     } catch (error) {
         console.log(error)
         // respond with error
-        res.sendStatus('400')
+        res.sendStatus(400)
     }
 }
 
-const login = (req, res) => {
+const login = async (req, res) => {
+    // get name, email and password off req body
+    const name = req.body.name;
+    const email = req.body.email; 
+    const password = req.body.password;
 
+    // find the user with the requested id
+    const user = await User.findOne({
+        email: email,
+    })
+
+    // if user not found, send 401 error (unauthorized) and exit 
+    if (!user) return res.sendStatus(401);
+
+    // compare received password with found password
+    const passwordMatch = bcrypt.compareSync(password, user.password);
+
+    // if password doesnt match, send 401 error (unauthorized) and exit
+    if (!passwordMatch) return res.sendStatus(401);
+
+    // create jwt token (1000 = 1 second) / token expires in 30 days
+    const exp = Date.now() + 1000 * 60 * 60 * 24 * 30;
+
+    const token = jwt.sign({ 
+        sub: user._id, 
+        exp: exp,
+    }, process.env.SECRET_KEY);
+
+    // set the cookie
+    res.cookie("Authorization", token, {})
+
+    // respond with status
+    res.sendStatus(200)
 }
 
 const logout = (req, res) => {
