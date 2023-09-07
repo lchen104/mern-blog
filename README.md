@@ -23,6 +23,11 @@ npm i --save cors
 vite: npm run dev
 cra: npm start
 
+# fetch data from mondoDB
 https://axios-http.com/docs/intro
-
 npm i --save axios
+
+# encrypt user password
+https://www.npmjs.com/package/bcryptjs
+https://github.com/dcodeIO/bcrypt.js
+npm i --save bcryptjs

@@ -8,6 +8,7 @@ const express = require('express');
 const cors = require('cors');
 const connectDb = require('./config/connectDb');
 const blogController = require('./controllers/blogController');
+const userController = require('./controllers/userController');
 
 // set port to listen
 const PORT = process.env.PORT;
@@ -23,6 +24,10 @@ app.use(cors())
 connectDb();
 
 // routing
+app.post('/signup', userController.signup)
+app.post('/signup', userController.login)
+app.get('/logout', userController.logout)
+
 app.get('/blogs', blogController.fetchBlogs)
 app.get('/blogs/:id', blogController.fetchBlog)
 app.post('/blogs', blogController.createBlog)
