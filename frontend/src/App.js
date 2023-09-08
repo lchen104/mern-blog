@@ -31,20 +31,15 @@ function App() {
   return (
     <div className="App">
         <BrowserRouter>
-            <ul>
-              <li>
-                <Link to='/'>Home</Link>
-              </li>
-              <li>
-                <Link to='/login'>Login</Link>
-              </li>
-              <li>
-                <Link to='/signup'>Signup</Link>
-              </li>
-              <li>
-                <Link to='/logout'>Logout</Link>
-              </li>
-            </ul>
+              <header style={{display: 'flex', justifyContent: 'space-between'}}>
+                Plogger
+                <div>
+                  <Link to='/'>Home</Link>&nbsp;
+                  <Link to='/login'>Login</Link>&nbsp;
+                  <Link to='/signup'>Signup</Link>&nbsp;
+                  <Link to='/logout'>Logout</Link>&nbsp;
+                </div>
+              </header>
             <Routes>
               <Route index element={
                 <RequireAuth loggedIn={loggedIn} checkAuth={checkAuth} >

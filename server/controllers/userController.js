@@ -72,7 +72,7 @@ const login = async (req, res) => {
         res.sendStatus(200)
     } catch (error) {
         console.log(err);
-        res.sendStatus(400);
+        // res.sendStatus(400);
     }
 }
 
