@@ -15,7 +15,7 @@ function App() {
 
   const checkAuth = async () => {
     try {
-        const res = await axios.get('/check-auth', {withCredentials: true});
+        const res = await axios.get('/check-auth');
 
         setLoggedIn(true);
         console.log(res);

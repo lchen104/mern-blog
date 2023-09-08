@@ -25,9 +25,7 @@ const SignupPage = () => {
       }
 
       const signup = async () => {
-        const res = await axios.post('/signup', signupForm, {
-            withCredentials: true,
-        })
+        const res = await axios.post('/signup', signupForm)
 
         setSignupForm({
             name: '',

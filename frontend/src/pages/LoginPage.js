@@ -24,9 +24,7 @@ const LoginPage = ({setLoggedIn, loggedIn}) => {
       }
 
     const login = async () => {
-        const res = await axios.post('/login', loginForm, {
-            withCredentials: true,
-        })
+        const res = await axios.post('/login', loginForm)
 
         setLoggedIn(true);
         setLoginForm({

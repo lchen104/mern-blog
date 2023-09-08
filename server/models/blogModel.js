@@ -5,6 +5,10 @@ const blogSchema = new mongoose.Schema({
     title: String,
     date: Date,
     body: String,
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+    }
 });
 
 // create the Blog model

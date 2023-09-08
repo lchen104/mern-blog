@@ -9,7 +9,7 @@ const LogoutPage = ({setLoggedIn}) => {
     }, []);
 
     const logout = async () => {
-        await axios.get('/logout', { withCredentials: true });
+        await axios.get('/logout');
         setLoggedIn(false);
     }
 

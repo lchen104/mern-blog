@@ -34,13 +34,14 @@ connectDb();
 app.post('/signup', userController.signup);
 app.post('/login', userController.login);
 app.get('/logout', userController.logout);
+
 app.get('/check-auth', requireAuth, userController.checkAuth);
 
-app.get('/blogs', blogController.fetchBlogs);
-app.get('/blogs/:id', blogController.fetchBlog);
-app.post('/blogs', blogController.createBlog);
-app.put('/blogs/:id', blogController.updateBlog);
-app.delete('/blogs/:id', blogController.deleteBlog);
+app.get('/blogs', requireAuth, blogController.fetchBlogs);
+app.get('/blogs/:id', requireAuth, blogController.fetchBlog);
+app.post('/blogs', requireAuth, blogController.createBlog);
+app.put('/blogs/:id', requireAuth, blogController.updateBlog);
+app.delete('/blogs/:id', requireAuth, blogController.deleteBlog);
 
 
 // start server
