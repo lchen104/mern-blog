@@ -5,6 +5,7 @@ import axios from 'axios';
 import BlogsPage from "./pages/BlogsPage";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from './pages/SignupPage';
+import LogoutPage from './pages/LogoutPage';
 
 import RequireAuth from './components/RequireAuth';
 
@@ -40,6 +41,9 @@ function App() {
               <li>
                 <Link to='/signup'>Signup</Link>
               </li>
+              <li>
+                <Link to='/logout'>Logout</Link>
+              </li>
             </ul>
             <Routes>
               <Route index element={
@@ -50,6 +54,7 @@ function App() {
 
               <Route path='/login' element={<LoginPage loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
               <Route path='/signup' element={<SignupPage />} />
+              <Route path='/logout' element={<LogoutPage loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
             </Routes>
 
         </BrowserRouter>
