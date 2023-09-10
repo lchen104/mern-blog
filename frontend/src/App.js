@@ -9,6 +9,9 @@ import LogoutPage from './pages/LogoutPage';
 
 import RequireAuth from './components/RequireAuth';
 
+import Button from '@mui/material/Button';
+import { Box } from '@mui/material';
+
 function App() {
 
   const [loggedIn, setLoggedIn] = useState(null);
@@ -30,28 +33,33 @@ function App() {
 
   return (
     <div className="App">
+    
         <BrowserRouter>
               <header style={{display: 'flex', justifyContent: 'space-between'}}>
-                Plogger
-                <div>
-                  <Link to='/'>Home</Link>&nbsp;
-                  <Link to='/login'>Login</Link>&nbsp;
-                  <Link to='/signup'>Signup</Link>&nbsp;
-                  <Link to='/logout'>Logout</Link>&nbsp;
-                </div>
+              <Button variant='text'><Link style={{textDecoration: 'none'}} to='/'>Blogger</Link></Button>
+                <Box>
+
+                  {(loggedIn) ? <Button variant="contained"><Link style={{textDecoration: 'none'}} to='/logout'>Logout</Link></Button> : <>
+                  <Button variant='outlined' style={{margin: '2px'}}><Link style={{textDecoration: 'none'}} to='/login'>Login</Link></Button>
+                  <Button variant="contained" style={{margin: '2px'}}><Link style={{textDecoration: 'none'}} to='/signup'>Signup</Link></Button>
+                  </>}
+                  
+                </Box>
               </header>
+
+            <Box style={{display: 'flex', justifyContent: 'center'}}>
             <Routes>
               <Route index element={
                 <RequireAuth loggedIn={loggedIn} checkAuth={checkAuth} >
                   <BlogsPage />
                 </RequireAuth>} 
               />
-
+            
               <Route path='/login' element={<LoginPage loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
               <Route path='/signup' element={<SignupPage />} />
               <Route path='/logout' element={<LogoutPage loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
             </Routes>
-
+            </Box>
         </BrowserRouter>
         
 

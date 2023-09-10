@@ -2,9 +2,15 @@ const mongoose = require('mongoose');
 
 // create the blog model schema
 const blogSchema = new mongoose.Schema({
-    title: String,
+    title: {
+        type: String,
+        required: [true, 'Please add blog title...'],
+    },
     date: Date,
-    body: String,
+    body: {
+        type: String,
+        required: [true, 'Enter something to blog...'],
+    },
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',

@@ -47,3 +47,11 @@ npm i --save cookie-parser
 # react-router
 https://v5.reactrouter.com/web/guides/quick-start
 npm i --save react-router-dom
+
+
+# material UI
+https://mui.com/material-ui/getting-started/installation/
+npm install @mui/material @emotion/react @emotion/styled
+npm install @fontsource/roboto
+
+npm install @mui/icons-material
