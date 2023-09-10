@@ -36,9 +36,10 @@ const BlogsPage = () => {
     const res = await axios.get('/blogs')
 
     // set to state
-    console.log(res);
-    setBlogs(res.data.blogs);
-    console.log(res);
+    // console.log(res);
+    // display latest blogs on top
+    setBlogs(res.data.blogs.reverse());
+    // console.log(res);
   }
 
   const handleChange = (e) => {
@@ -55,19 +56,25 @@ const BlogsPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault(e);
 
-    // create blog
-    const res = await axios.post('/blogs', createForm);
+    try {
+      // create blog
+      const res = await axios.post('/blogs', createForm);
 
-    // update state
-    setBlogs([...blogs, res.data.blog])
-    console.log(res)
+      // update state
+      setBlogs([res.data.blog, ...blogs])
+      console.log(res)
+      console.log(blogs)
 
-    // clear the form state
-    setCreateForm({
-      title: '',
-      date: '',
-      body: '',
-    })
+      // clear the form state
+      setCreateForm({
+        title: '',
+        date: '',
+        body: '',
+      })
+    } catch (error) {
+      console.log(error)
+    }
+
   }
 
   // delete blog
@@ -145,11 +152,7 @@ const BlogsPage = () => {
 
   return (
     <div>
-        <BlogsList 
-            blogs={blogs} 
-            deleteBlog={deleteBlog} 
-            toggleUpdate={toggleUpdate} 
-        />
+
 
         <UpdateBlog 
             updateForm={updateForm} 
@@ -162,6 +165,12 @@ const BlogsPage = () => {
             createForm={createForm} 
             handleSubmit={handleSubmit} 
             handleChange={handleChange} 
+        />
+
+        <BlogsList 
+            blogs={blogs} 
+            deleteBlog={deleteBlog} 
+            toggleUpdate={toggleUpdate} 
         />
     </div>
   )

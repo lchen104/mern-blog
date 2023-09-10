@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import { Box } from '@mui/material';
 import { TextField } from '@mui/material';
 import { Typography } from '@mui/material';
-
+import CreateIcon from '@mui/icons-material/Create';
 
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
@@ -42,7 +42,7 @@ const CreateBlog = ({updateForm, handleSubmit, handleChange, createForm}) => {
                     rows="8" 
                     placeholder="Enter Blog..." 
                 />
-                <Button fullWidth variant='contained' type='submit'>Create Blog</Button>
+                <Button fullWidth size='large' variant='contained' type='submit'><CreateIcon /> Create Blog</Button>
             </form>
         </Box>
     )

@@ -42,7 +42,7 @@ const LoginPage = ({setLoggedIn, loggedIn}) => {
 
     return (
         <div>
-            <h1>Login</h1>
+            {/* <h1>Login</h1> */}
             <Login 
                 handleLoginChange={handleLoginChange} 
                 loginForm={loginForm} 

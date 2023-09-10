@@ -1,6 +1,16 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 
+import Button from '@mui/material/Button';
+import { Box } from '@mui/material';
+import { TextField } from '@mui/material';
+import { Typography } from '@mui/material';
+
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+
 const Signup = ({signupForm, handleSignupChange, signup}) => {
 
     const navigate = useNavigate();
@@ -15,33 +25,48 @@ const Signup = ({signupForm, handleSignupChange, signup}) => {
     }
 
   return (
-    <form onSubmit={handleSignup}>
-        <input 
-            onChange={handleSignupChange} 
-            value={signupForm.name} 
-            type='text' 
-            name='name' 
-            placeholder='Enter name...' 
-        /><br />
+    <Box width='550px'>
+        <Typography variant='h6' sx={{paddingBottom: 1 }}>Signup</Typography>
+        <form onSubmit={handleSignup}>
+            <TextField 
+                label='Name'
+                fullWidth 
+                size='small' 
+                sx={{paddingBottom: 1 }} 
+                onChange={handleSignupChange} 
+                value={signupForm.name} 
+                type='text' 
+                name='name' 
+                placeholder='Enter name...' 
+            />
 
-        <input 
-            onChange={handleSignupChange} 
-            value={signupForm.email} 
-            type='email' 
-            name='email' 
-            placeholder='Enter email...' 
-        /><br />
+            <TextField 
+                label='Email'
+                fullWidth 
+                size='small' 
+                sx={{paddingBottom: 1 }} 
+                onChange={handleSignupChange} 
+                value={signupForm.email} 
+                type='email' 
+                name='email' 
+                placeholder='Enter email...' 
+            />
 
-        <input 
-            onChange={handleSignupChange} 
-            value={signupForm.password} 
-            type='password' 
-            name='password' 
-            placeholder='Enter password...' 
-        /><br />
+            <TextField 
+                label='Password'
+                fullWidth 
+                size='small' 
+                sx={{paddingBottom: 1 }} 
+                onChange={handleSignupChange} 
+                value={signupForm.password} 
+                type='password' 
+                name='password' 
+                placeholder='Enter password...' 
+            />
 
-        <button type='submit'>Signup</button>
-    </form>
+            <Button fullWidth variant='contained' type='submit'>Signup</Button>
+        </form>
+    </Box>
   )
 }
 

@@ -25,21 +25,30 @@ const SignupPage = () => {
       }
 
       const signup = async () => {
-        const res = await axios.post('/signup', signupForm)
+        try {
+          const res = await axios.post('/signup', signupForm)
 
-        setSignupForm({
-            name: '',
-            email: '',
-            password: '',
-        });
-        console.log(res);
-        console.log(signup)
+          setSignupForm({
+              name: '',
+              email: '',
+              password: '',
+          });
+          console.log(res);
+          console.log(signup)
+        } catch (error) {
+          console.log(error)
+        }
+
     }
     
   return (
     <div>
-        <h1>Signup</h1>
-        <Signup handleSignupChange={handleSignupChange} signupForm={signupForm} signup={signup} />
+        {/* <h1>Signup</h1> */}
+        <Signup 
+          handleSignupChange={handleSignupChange} 
+          signupForm={signupForm} 
+          signup={signup} 
+        />
     </div>
   )
 }
