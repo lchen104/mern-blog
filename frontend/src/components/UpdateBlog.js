@@ -1,27 +1,48 @@
 import React from 'react'
 
+import Button from '@mui/material/Button';
+import { Box } from '@mui/material';
+import { TextField } from '@mui/material';
+import { Typography } from '@mui/material';
+
+
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+
 const UpdateBlog = ({updateForm, updateBlog, handleUpdate}) => {
 
   if (!updateForm._id) return <></>;
 
   return (
-    <div>
-        <h2>Update Blog</h2>
+    <Box sx={{ mx: 'auto', width: 600 }}>
+        <Typography variant='h6' sx={{paddingBottom: 1 }}>Update Blog</Typography>
         <form onSubmit={updateBlog}>
-            <input 
-            onChange={handleUpdate} 
-            value={updateForm.title} 
-            type="text" name="title"  
-            /><br />
+            <TextField 
+              label='Title'
+              fullWidth 
+              size='small' 
+              sx={{paddingBottom: 1 }}  
+              onChange={handleUpdate} 
+              value={updateForm.title} 
+              type="text" 
+              name="title"  
+            />
 
-            <textarea 
-            onChange={handleUpdate} 
-            value={updateForm.body} 
-            name="body" rows="4" 
-            /><br />
-            <button type="submit">Update Blog</button>
+            <TextField 
+              label='Blog'
+              fullWidth 
+              size='small' 
+              sx={{paddingBottom: 1 }} 
+              multiline 
+              onChange={handleUpdate} 
+              value={updateForm.body} 
+              name="body" rows="8" 
+            />
+            <Button type="submit">Update Blog</Button>
         </form>
-    </div>
+    </Box>
   )
 }
 
