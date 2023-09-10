@@ -24,7 +24,7 @@ const Login = ({loginForm, handleLoginChange, login}) => {
   }
 
   return (
-    <Box sx={{ mx: 'auto', width: 400 }}>
+    <Box width='550px'>
     <Typography variant='h6' sx={{paddingBottom: 1 }}>Login</Typography>
     <form onSubmit={handleLogin}>
         <TextField 

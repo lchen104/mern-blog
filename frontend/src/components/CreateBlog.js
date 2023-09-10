@@ -16,7 +16,7 @@ const CreateBlog = ({updateForm, handleSubmit, handleChange, createForm}) => {
     if (updateForm._id) return <></>;
 
     return (
-        <Box sx={{ mx: 'auto', width: 600 }}>
+        <Box>
             <Typography variant='h6' sx={{paddingBottom: 1 }}>Create Blog</Typography>
             <form onSubmit={handleSubmit}>
                 <TextField 

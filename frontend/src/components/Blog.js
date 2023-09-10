@@ -5,9 +5,20 @@ import {Typography} from '@mui/material';
 import Button from '@mui/material/Button';
 
 const Blog = ({blog, deleteBlog, toggleUpdate}) => {
-    
+    // console.log(blog.date)
+    // const today = new Date();
+    // console.log(today)
+    // const f = new Intl.DateTimeFormat("en-us", { 
+    //   dateStyle: 'full',
+    // })
+    // console.log(f.format(today))
+
   return (
-    <Box style={{width: '550px', border: '1px solid lightgrey', margin: '20px', padding: '10px'}} sx={{ mx: 'auto', width: 500 }}>
+    <Box 
+      border='1px solid lightgrey' 
+      padding='20px' 
+      marginTop='20px'
+    >
         <Typography mb={2}>{blog.date}</Typography>
         <Typography mb={2} variant='h6'>{blog.title}</Typography>
         

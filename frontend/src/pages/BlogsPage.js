@@ -36,9 +36,10 @@ const BlogsPage = () => {
     const res = await axios.get('/blogs')
 
     // set to state
-    console.log(res);
-    setBlogs(res.data.blogs);
-    console.log(res);
+    // console.log(res);
+    // display latest blogs on top
+    setBlogs(res.data.blogs.reverse());
+    // console.log(res);
   }
 
   const handleChange = (e) => {
@@ -62,6 +63,7 @@ const BlogsPage = () => {
       // update state
       setBlogs([res.data.blog, ...blogs])
       console.log(res)
+      console.log(blogs)
 
       // clear the form state
       setCreateForm({

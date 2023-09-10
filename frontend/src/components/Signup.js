@@ -25,7 +25,7 @@ const Signup = ({signupForm, handleSignupChange, signup}) => {
     }
 
   return (
-    <Box sx={{ mx: 'auto', width: 400 }}>
+    <Box width='550px'>
         <Typography variant='h6' sx={{paddingBottom: 1 }}>Signup</Typography>
         <form onSubmit={handleSignup}>
             <TextField 

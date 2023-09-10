@@ -44,7 +44,11 @@ const SignupPage = () => {
   return (
     <div>
         {/* <h1>Signup</h1> */}
-        <Signup handleSignupChange={handleSignupChange} signupForm={signupForm} signup={signup} />
+        <Signup 
+          handleSignupChange={handleSignupChange} 
+          signupForm={signupForm} 
+          signup={signup} 
+        />
     </div>
   )
 }

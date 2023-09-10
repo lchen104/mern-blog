@@ -50,7 +50,16 @@ const createBlog = async (req, res) => {
     try {
         // get sent in data off the request body
         const title = req.body.title;
-        const date = Date.now();
+
+        // const date = Date.now();
+        const today = new Date();
+        // console.log(today)
+        const f = new Intl.DateTimeFormat("en-us", { 
+          dateStyle: 'full',
+        })
+        // console.log(f.format(today));
+        const date = f.format(today);
+
         const body = req.body.body;
         const user = req.user._id;
 
@@ -82,7 +91,16 @@ const updateBlog = async (req, res) => {
 
         // get data off request body
         const title =  req.body.title;
-        const date =  Date.now();
+        
+        // const date = Date.now();
+        const today = new Date();
+        // console.log(today)
+        const f = new Intl.DateTimeFormat("en-us", { 
+          dateStyle: 'full',
+        })
+        // console.log(f.format(today));
+        const date = f.format(today);
+
         const body = req.body.body;
         
         // find and upate blog 

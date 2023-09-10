@@ -16,7 +16,7 @@ const UpdateBlog = ({updateForm, updateBlog, handleUpdate}) => {
   if (!updateForm._id) return <></>;
 
   return (
-    <Box sx={{ mx: 'auto', width: 600 }}>
+    <Box>
         <Typography variant='h6' sx={{paddingBottom: 1 }}>Update Blog</Typography>
         <form onSubmit={updateBlog}>
             <TextField 

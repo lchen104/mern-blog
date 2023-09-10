@@ -6,7 +6,7 @@ const blogSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Please add blog title...'],
     },
-    date: Date,
+    date: String,
     body: {
         type: String,
         required: [true, 'Enter something to blog...'],
