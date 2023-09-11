@@ -42,7 +42,7 @@ const CreateBlog = ({updateForm, handleSubmit, handleChange, createForm}) => {
                     rows="8" 
                     placeholder="Enter Blog..." 
                 />
-                <Button fullWidth size='large' variant='contained' type='submit'><CreateIcon /> Create Blog</Button>
+                <Button fullWidth size='large' variant='contained' type='submit'><CreateIcon /> Add Blog</Button>
             </form>
         </Box>
     )

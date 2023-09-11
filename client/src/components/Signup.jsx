@@ -5,6 +5,7 @@ import Button from '@mui/material/Button';
 import { Box } from '@mui/material';
 import { TextField } from '@mui/material';
 import { Typography } from '@mui/material';
+import HowToRegIcon from '@mui/icons-material/HowToReg';
 
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
@@ -64,7 +65,7 @@ const Signup = ({signupForm, handleSignupChange, signup}) => {
                 placeholder='Enter password...' 
             />
 
-            <Button fullWidth variant='contained' type='submit'>Signup</Button>
+            <Button fullWidth variant='contained' type='submit'><HowToRegIcon />&nbsp;Signup</Button>
         </form>
     </Box>
   )

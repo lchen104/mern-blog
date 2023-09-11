@@ -40,7 +40,7 @@ const UpdateBlog = ({updateForm, updateBlog, handleUpdate}) => {
               value={updateForm.body} 
               name="body" rows="8" 
             />
-            <Button type="submit">Update Blog</Button>
+            <Button fullWidth size='large' variant='contained' type="submit">Update Blog</Button>
         </form>
     </Box>
   )

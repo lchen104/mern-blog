@@ -1,10 +1,13 @@
 import React from 'react'
 import Blog from './Blog'
+import { Typography } from '@mui/material';
 
 const BlogsList = ({blogs, deleteBlog, toggleUpdate}) => {
   return (
     <div>
-      {/* <h1>Blogs</h1> */}
+      <Typography variant='h4' mt='50px' align='center'>
+          Blogs
+      </Typography>
       {
           blogs && blogs.map((blog) => 
             (

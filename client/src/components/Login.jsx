@@ -5,6 +5,7 @@ import Button from '@mui/material/Button';
 import { Box } from '@mui/material';
 import { TextField } from '@mui/material';
 import { Typography } from '@mui/material';
+import LoginIcon from '@mui/icons-material/Login';
 
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
@@ -51,7 +52,7 @@ const Login = ({loginForm, handleLoginChange, login}) => {
             placeholder='Enter password...' 
         />
 
-        <Button fullWidth variant='contained' type='submit'>Login</Button>
+        <Button fullWidth variant='contained' type='submit'><LoginIcon />&nbsp;Login</Button>
     </form>
     </Box>
   )

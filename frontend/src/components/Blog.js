@@ -19,7 +19,7 @@ const Blog = ({blog, deleteBlog, toggleUpdate}) => {
         
         <Typography color='textSecondary' paragraph mb={2}>{blog.body}</Typography>
         
-        <Button sx={{marginRight: 1 }} variant='contained' onClick={() => deleteBlog(blog._id)}><DeleteIcon /> Delete</Button>
+        <Button color='secondary' sx={{marginRight: 1 }} variant='contained' onClick={() => deleteBlog(blog._id)}><DeleteIcon /> Delete</Button>
         <Button variant='outlined' onClick={() => toggleUpdate(blog)}><EditIcon /> Update</Button>
     </Box>
   )

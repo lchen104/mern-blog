@@ -16,7 +16,6 @@ import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
 import HomeIcon from '@mui/icons-material/Home';
 
-
 function App() {
 
   const [loggedIn, setLoggedIn] = useState(null);
@@ -42,7 +41,7 @@ function App() {
       <AppBar position='relative'>
         <Toolbar>
           <Typography variant='h4'>
-            <HomeIcon /> Blog
+            .ateM
           </Typography>
         </Toolbar>
       </AppBar>
@@ -52,10 +51,19 @@ function App() {
             <Button variant='text'><Link style={{textDecoration: 'none'}} to='/'>Home</Link></Button>
             <Box>
 
-              {(loggedIn) ? <Button variant="contained"><Link style={{textDecoration: 'none'}} to='/logout'>Logout</Link></Button> : <>
-              <Button variant='outlined' style={{margin: '2px'}}><Link style={{textDecoration: 'none'}} to='/login'>Login</Link></Button>
-              <Button variant="contained" style={{margin: '2px'}}><Link style={{textDecoration: 'none'}} to='/signup'>Signup</Link></Button>
-              </>}
+              {
+                (loggedIn) ? 
+                (
+                  <>
+                    Welcome&nbsp;<Button variant="contained"><Link style={{textDecoration: 'none'}} to='/logout'>Logout</Link></Button>
+                  </>
+                ) : (
+                  <>
+                    <Button variant='outlined' style={{margin: '2px'}}><Link style={{textDecoration: 'none'}} to='/login'>Login</Link></Button>
+                    <Button variant="contained" style={{margin: '2px'}}><Link style={{textDecoration: 'none'}} to='/signup'>Signup</Link></Button>
+                  </>
+                )
+              }
               
             </Box>
           </header>

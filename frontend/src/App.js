@@ -8,6 +8,7 @@ import SignupPage from './pages/SignupPage';
 import LogoutPage from './pages/LogoutPage';
 
 import RequireAuth from './components/RequireAuth';
+import Footer from './components/Footer';
 
 import Button from '@mui/material/Button';
 import { Typography, Box, AppBar, Card, CardActions, CardContent, CardMedia, CssBaseline, Grid, Toolbar, Container } from '@mui/material';
@@ -16,6 +17,9 @@ import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
 import HomeIcon from '@mui/icons-material/Home';
 
+import { ThemeProvider } from '@mui/material/styles';
+
+import defaultTheme from './styles/styles';
 
 function App() {
 
@@ -34,15 +38,18 @@ function App() {
     }
     
     // res.sendStatus();
-}
+  }
+
+
 
   return (
     <div className="App">
+    <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
       <AppBar position='relative'>
         <Toolbar>
           <Typography variant='h4'>
-            <HomeIcon /> Blog
+            .ateM
           </Typography>
         </Toolbar>
       </AppBar>
@@ -52,10 +59,19 @@ function App() {
             <Button variant='text'><Link style={{textDecoration: 'none'}} to='/'>Home</Link></Button>
             <Box>
 
-              {(loggedIn) ? <Button variant="contained"><Link style={{textDecoration: 'none'}} to='/logout'>Logout</Link></Button> : <>
-              <Button variant='outlined' style={{margin: '2px'}}><Link style={{textDecoration: 'none'}} to='/login'>Login</Link></Button>
-              <Button variant="contained" style={{margin: '2px'}}><Link style={{textDecoration: 'none'}} to='/signup'>Signup</Link></Button>
-              </>}
+              {
+                (loggedIn) ? 
+                (
+                  <>
+                    Welcome&nbsp;<Button variant="contained"><Link style={{textDecoration: 'none'}} to='/logout'>Logout</Link></Button>
+                  </>
+                ) : (
+                  <>
+                    <Button variant='outlined' style={{margin: '2px'}}><Link style={{textDecoration: 'none'}} to='/login'>Login</Link></Button>
+                    <Button variant="contained" style={{margin: '2px'}}><Link style={{textDecoration: 'none'}} to='/signup'>Signup</Link></Button>
+                  </>
+                )
+              }
               
             </Box>
           </header>
@@ -80,9 +96,15 @@ function App() {
             </Box>
             </Container>
           </main>
+
+          <Typography marginTop='10px' align='center'>
+            <Footer />
+          </Typography>
+          
+
         </BrowserRouter>
         
-
+    </ThemeProvider>
     </div>
   );
 }

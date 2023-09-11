@@ -7,8 +7,29 @@ import BlogsList from "../components/BlogsList";
 import UpdateBlog from "../components/UpdateBlog";
 import CreateBlog from "../components/CreateBlog";
 
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 600,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
+
 const BlogsPage = () => {
 
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  const [buttonState, setButtonState] = useState(false);
   // state
   const [blogs, setBlogs] = useState(null);
   
@@ -106,7 +127,7 @@ const BlogsPage = () => {
   // toggle update
   const toggleUpdate = (blog) => {
       // console.log(blog)
-
+      setButtonState(true)
       // set state on update form
       setUpdateForm({
         _id: blog._id,
@@ -153,7 +174,14 @@ const BlogsPage = () => {
   return (
     <div>
 
-
+      <Button fullWidth size='large' variant='contained' type='submit' onClick={handleOpen}>{!buttonState ? 'Create New Blog' : 'Update Blog'}</Button>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
         <UpdateBlog 
             updateForm={updateForm} 
             updateBlog={updateBlog} 
@@ -166,6 +194,21 @@ const BlogsPage = () => {
             handleSubmit={handleSubmit} 
             handleChange={handleChange} 
         />
+        </Box>
+      </Modal>
+
+        {/* <UpdateBlog 
+            updateForm={updateForm} 
+            updateBlog={updateBlog} 
+            handleUpdate={handleUpdate} 
+        /> */}
+
+        {/* <CreateBlog 
+            updateForm={updateForm} 
+            createForm={createForm} 
+            handleSubmit={handleSubmit} 
+            handleChange={handleChange} 
+        /> */}
 
         <BlogsList 
             blogs={blogs} 
