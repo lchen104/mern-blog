@@ -23,7 +23,7 @@ const LoginPage = ({setLoggedIn, loggedIn}) => {
 
     const login = async () => {
         try {
-
+            
             const res = await axios.post('/login', loginForm)
 
             setLoggedIn(true);

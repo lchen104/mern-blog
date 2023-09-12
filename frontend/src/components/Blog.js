@@ -25,15 +25,28 @@ const style = {
 };
 
 
-const Blog = ({blog, deleteBlog, toggleUpdate, updateBlog, handleUpdate, updateForm}) => {
+const Blog = ({blog, deleteBlog, toggleUpdate, updateBlog, handleUpdate, updateForm, setButtonState}) => {
+
+  // console.log(toggleUpdate)
 
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const handleClose = () => {
+    setOpen(false);
+
+    // reset button state and toggle State 
+    toggleUpdate({})
+    setButtonState(false)
+  }
   
   const handleUpdatedBlog = () => {
     toggleUpdate(blog)
     handleOpen()
+  }
+
+  const handleUpdateSubmit = (blog) => {
+    updateBlog(blog)
+    handleClose()
   }
 
   return (
@@ -67,7 +80,7 @@ const Blog = ({blog, deleteBlog, toggleUpdate, updateBlog, handleUpdate, updateF
             <Typography id="modal-modal-description" sx={{ mt: 2 }}>
           <Box>
         <Typography variant='h6' sx={{paddingBottom: 1 }}>Update Blog</Typography>
-        <form onSubmit={updateBlog}>
+        <form onSubmit={handleUpdateSubmit}>
             <TextField 
               label='Title'
               fullWidth 
@@ -103,7 +116,7 @@ const Blog = ({blog, deleteBlog, toggleUpdate, updateBlog, handleUpdate, updateF
         
         <Button color='secondary' sx={{marginRight: 1 }} variant='contained' onClick={() => deleteBlog(blog._id)}><DeleteIcon /> Delete</Button>
         {/* <Button variant='outlined' onClick={() => toggleUpdate(blog)}><EditIcon /> Update</Button> */}
-        <Button variant='outlined' onClick={handleUpdatedBlog}><EditIcon /> Edit</Button>
+        <Button color='primary' variant='contained' onClick={handleUpdatedBlog}><EditIcon /> Edit</Button>
     </Box>
   )
 }

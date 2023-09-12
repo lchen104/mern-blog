@@ -2,10 +2,10 @@ import React from 'react'
 import Blog from './Blog'
 import { Typography } from '@mui/material';
 
-const BlogsList = ({blogs, deleteBlog, toggleUpdate, updateBlog, handleUpdate, updateForm}) => {
+const BlogsList = ({blogs, deleteBlog, toggleUpdate, updateBlog, handleUpdate, updateForm, setButtonState}) => {
   return (
     <div>
-      <Typography variant='h4' mt='50px' align='center'>
+      <Typography variant='h4' mt='20px' align='center'>
           Blogs
       </Typography>
       {
@@ -19,6 +19,7 @@ const BlogsList = ({blogs, deleteBlog, toggleUpdate, updateBlog, handleUpdate, u
                     updateBlog={updateBlog}
                     handleUpdate={handleUpdate}
                     updateForm={updateForm}
+                    setButtonState={setButtonState}
                 />
             )
           )

@@ -97,7 +97,8 @@ const BlogsPage = () => {
     } catch (error) {
       console.log(error)
     }
-
+    // close the modal window after creating new blog
+    handleClose()
   }
 
   // delete blog
@@ -139,7 +140,7 @@ const BlogsPage = () => {
       })
 
       // set button back to Create New Blog state
-      setButtonState(false);
+      // setButtonState(false);
   }
 
   const updateBlog = async (e) => {
@@ -174,6 +175,7 @@ const BlogsPage = () => {
         date: '',
         body: '',
       })
+      
   }
 
   return (
@@ -244,6 +246,7 @@ const BlogsPage = () => {
             updateForm={updateForm}
             updateBlog={updateBlog}
             handleUpdate={handleUpdate}
+            setButtonState={setButtonState}
         />
         
       </div>

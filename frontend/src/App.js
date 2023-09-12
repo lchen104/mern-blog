@@ -56,6 +56,15 @@ function App() {
   }
 
 
+  const getUserInfo = async () => {
+    try {
+      const res = await axios.get()
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+
   return (
     <div className="App">
 

@@ -35,6 +35,7 @@ const Signup = ({signupForm, handleSignupChange, signup}) => {
         <Typography variant='h6' sx={{paddingBottom: 1 }}>Signup</Typography>
         <form onSubmit={handleSignup}>
             <TextField 
+                required
                 label='Name'
                 fullWidth 
                 size='small' 
@@ -47,6 +48,7 @@ const Signup = ({signupForm, handleSignupChange, signup}) => {
             />
 
             <TextField 
+                required
                 label='Email'
                 fullWidth 
                 size='small' 
@@ -59,6 +61,7 @@ const Signup = ({signupForm, handleSignupChange, signup}) => {
             />
 
             <TextField 
+                required
                 label='Password'
                 fullWidth 
                 size='small' 

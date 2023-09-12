@@ -34,6 +34,7 @@ const Login = ({loginForm, handleLoginChange, login}) => {
     <Typography variant='h6' sx={{paddingBottom: 1 }}>Login</Typography>
     <form onSubmit={handleLogin}>
         <TextField 
+            required
             label='Email'
             fullWidth 
             size='small' 
@@ -46,6 +47,7 @@ const Login = ({loginForm, handleLoginChange, login}) => {
         />
 
         <TextField 
+            required
             label='Password'
             fullWidth 
             size='small' 
