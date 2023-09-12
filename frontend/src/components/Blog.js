@@ -82,6 +82,7 @@ const Blog = ({blog, deleteBlog, toggleUpdate, updateBlog, handleUpdate, updateF
         <Typography variant='h6' sx={{paddingBottom: 1 }}>Update Blog</Typography>
         <form onSubmit={handleUpdateSubmit}>
             <TextField 
+              required
               label='Title'
               fullWidth 
               size='small' 
@@ -93,6 +94,7 @@ const Blog = ({blog, deleteBlog, toggleUpdate, updateBlog, handleUpdate, updateF
             />
 
             <TextField 
+              required
               label='Blog'
               fullWidth 
               size='small' 

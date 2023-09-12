@@ -20,6 +20,7 @@ const CreateBlog = ({updateForm, handleSubmit, handleChange, createForm}) => {
             <Typography variant='h6' sx={{paddingBottom: 1 }}>Create Blog</Typography>
             <form onSubmit={handleSubmit}>
                 <TextField 
+                    required
                     label='Title'
                     fullWidth 
                     size='small' 
@@ -31,6 +32,7 @@ const CreateBlog = ({updateForm, handleSubmit, handleChange, createForm}) => {
                 />
                 
                 <TextField 
+                    required
                     label='Blog'
                     fullWidth 
                     size='small' 
