@@ -14,6 +14,12 @@ const defaultTheme = createTheme({
       dark: '#ba000d',
       contrastText: '#fff',
     },
+    createBtn: {
+      main: '#66bb6a',
+      light: '#81c784',
+      dark: '#388e3c',
+      contrastText: '#fff',
+    },
   },
 });
 

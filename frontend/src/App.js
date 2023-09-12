@@ -38,9 +38,8 @@ function App() {
     setAnchorEl(null);
   };
 
-
+  // Check if user is logged in and display nav links accordingly
   const [loggedIn, setLoggedIn] = useState(null);
-
   const checkAuth = async () => {
     try {
         const res = await axios.get('/check-auth');
@@ -57,99 +56,92 @@ function App() {
   }
 
 
-
   return (
     <div className="App">
 
+      <ThemeProvider theme={defaultTheme}>
+        <CssBaseline />
+        <AppBar position='relative'>
+          <Toolbar>
+            <Typography variant='h4'>
+              .ateM
+            </Typography>
+          </Toolbar>
+        </AppBar>
 
+          <BrowserRouter>
+          <Menu
+          id="basic-menu"
+          anchorEl={anchorEl}
+          open={open}
+          onClose={handleClose}
+          MenuListProps={{
+            'aria-labelledby': 'basic-button',
+          }}
+        >
+          <MenuItem onClick={handleClose}>Profile</MenuItem>
+          <MenuItem onClick={handleClose}>My account</MenuItem>
+          <MenuItem onClick={handleClose}>Create Blog</MenuItem>
+          <MenuItem onClick={handleClose}><Link style={{textDecoration: 'none'}} to='/logout'>Logout</Link></MenuItem>
+        </Menu>
+            <header style={{margin: '10px', display: 'flex', justifyContent: 'space-between'}}>
+              <Button variant='text'><Link style={{textDecoration: 'none', color: '#3f50b5'}} to='/'>Home</Link></Button>
+              <Box>
 
+                {
+                  (loggedIn) ? 
+                  (
+                    <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                    <Button
+                      id="basic-button"
+                      aria-controls={open ? 'basic-menu' : undefined}
+                      aria-haspopup="true"
+                      aria-expanded={open ? 'true' : undefined}
+                      onClick={handleClick}
+                    >
+                      <span>Welcome</span> 
+                      <PersonIcon fontSize='large' />
+                    </Button>
+                    </div>
+                  ) : (
+                    <>
+                      <Button variant='outlined' style={{margin: '2px'}}><Link style={{textDecoration: 'none', color: '#3f50b5'}} to='/login'>Login</Link></Button>
+                      <Button variant="contained" style={{margin: '2px'}}><Link style={{textDecoration: 'none', color: 'white'}} to='/signup'>Signup</Link></Button>
+                    </>
+                  )
+                }
+                
+              </Box>
+            </header>
 
+            <main>
+              <Container maxWidth='sm'>
+              <Box 
+                display='flex' 
+                justifyContent='center'
+              >
+                <Routes>
+                  <Route index element={
+                    <RequireAuth loggedIn={loggedIn} checkAuth={checkAuth} >
+                      <BlogsPage />
+                    </RequireAuth>} 
+                  />
+                
+                  <Route path='/login' element={<LoginPage loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
+                  <Route path='/signup' element={<SignupPage />} />
+                  <Route path='/logout' element={<LogoutPage loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
+                </Routes>
+              </Box>
+              </Container>
+            </main>
 
-      
-
-    <ThemeProvider theme={defaultTheme}>
-      <CssBaseline />
-      <AppBar position='relative'>
-        <Toolbar>
-          <Typography variant='h4'>
-            .ateM
-          </Typography>
-        </Toolbar>
-      </AppBar>
-
-        <BrowserRouter>
-        <Menu
-        id="basic-menu"
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-        MenuListProps={{
-          'aria-labelledby': 'basic-button',
-        }}
-      >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={handleClose}><Link style={{textDecoration: 'none'}} to='/logout'>Logout</Link></MenuItem>
-      </Menu>
-          <header style={{margin: '10px', display: 'flex', justifyContent: 'space-between'}}>
-            <Button variant='text'><Link style={{textDecoration: 'none', color: 'black'}} to='/'>Home</Link></Button>
-            <Box>
-
-              {
-                (loggedIn) ? 
-                (
-                  <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                  <Button
-                    id="basic-button"
-                    aria-controls={open ? 'basic-menu' : undefined}
-                    aria-haspopup="true"
-                    aria-expanded={open ? 'true' : undefined}
-                    onClick={handleClick}
-                  >
-                    <span>Welcome</span> 
-                    <PersonIcon fontSize='large' />
-                  </Button>
-                  </div>
-                ) : (
-                  <>
-                    <Button variant='outlined' style={{margin: '2px'}}><Link style={{textDecoration: 'none'}} to='/login'>Login</Link></Button>
-                    <Button variant="contained" style={{margin: '2px'}}><Link style={{textDecoration: 'none'}} to='/signup'>Signup</Link></Button>
-                  </>
-                )
-              }
-              
-            </Box>
-          </header>
-
-          <main>
-            <Container maxWidth='sm'>
-            <Box 
-              display='flex' 
-              justifyContent='center'
-            >
-              <Routes>
-                <Route index element={
-                  <RequireAuth loggedIn={loggedIn} checkAuth={checkAuth} >
-                    <BlogsPage />
-                  </RequireAuth>} 
-                />
-              
-                <Route path='/login' element={<LoginPage loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
-                <Route path='/signup' element={<SignupPage />} />
-                <Route path='/logout' element={<LogoutPage loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
-              </Routes>
-            </Box>
-            </Container>
-          </main>
-
-          <Typography marginTop='10px' align='center'>
-            <Footer />
-          </Typography>
+            <Typography marginTop='10px' align='center'>
+              <Footer />
+            </Typography>
+            
+          </BrowserRouter>
           
-
-        </BrowserRouter>
-        
-    </ThemeProvider>
+      </ThemeProvider>
     </div>
   );
 }
