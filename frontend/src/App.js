@@ -13,15 +13,31 @@ import Footer from './components/Footer';
 import Button from '@mui/material/Button';
 import { Typography, Box, AppBar, Card, CardActions, CardContent, CardMedia, CssBaseline, Grid, Toolbar, Container } from '@mui/material';
 
+import * as React from 'react';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+
 import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
 import HomeIcon from '@mui/icons-material/Home';
+import PersonIcon from '@mui/icons-material/Person';
 
 import { ThemeProvider } from '@mui/material/styles';
 
 import defaultTheme from './styles/styles';
 
 function App() {
+
+  // Modal for Welcome menu
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
 
   const [loggedIn, setLoggedIn] = useState(null);
 
@@ -44,6 +60,13 @@ function App() {
 
   return (
     <div className="App">
+
+
+
+
+
+      
+
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
       <AppBar position='relative'>
@@ -55,16 +78,38 @@ function App() {
       </AppBar>
 
         <BrowserRouter>
+        <Menu
+        id="basic-menu"
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        MenuListProps={{
+          'aria-labelledby': 'basic-button',
+        }}
+      >
+        <MenuItem onClick={handleClose}>Profile</MenuItem>
+        <MenuItem onClick={handleClose}>My account</MenuItem>
+        <MenuItem onClick={handleClose}><Link style={{textDecoration: 'none'}} to='/logout'>Logout</Link></MenuItem>
+      </Menu>
           <header style={{margin: '10px', display: 'flex', justifyContent: 'space-between'}}>
-            <Button variant='text'><Link style={{textDecoration: 'none'}} to='/'>Home</Link></Button>
+            <Button variant='text'><Link style={{textDecoration: 'none', color: 'black'}} to='/'>Home</Link></Button>
             <Box>
 
               {
                 (loggedIn) ? 
                 (
-                  <>
-                    Welcome&nbsp;<Button variant="contained"><Link style={{textDecoration: 'none'}} to='/logout'>Logout</Link></Button>
-                  </>
+                  <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                  <Button
+                    id="basic-button"
+                    aria-controls={open ? 'basic-menu' : undefined}
+                    aria-haspopup="true"
+                    aria-expanded={open ? 'true' : undefined}
+                    onClick={handleClick}
+                  >
+                    <span>Welcome</span> 
+                    <PersonIcon fontSize='large' />
+                  </Button>
+                  </div>
                 ) : (
                   <>
                     <Button variant='outlined' style={{margin: '2px'}}><Link style={{textDecoration: 'none'}} to='/login'>Login</Link></Button>

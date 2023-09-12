@@ -29,7 +29,7 @@ const CreateBlog = ({updateForm, handleSubmit, handleChange, createForm}) => {
                     type="text" name="title" 
                     placeholder="Enter Title..." 
                 />
-
+                
                 <TextField 
                     label='Blog'
                     fullWidth 
