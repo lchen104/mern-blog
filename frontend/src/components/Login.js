@@ -27,7 +27,7 @@ const Login = ({loginForm, handleLoginChange, login}) => {
   }
 
   return (
-    <Box width='550px' align='center'>
+    <Box width='550px' height='80vh' align='center'>
       <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
         <LockOutlinedIcon />
       </Avatar>

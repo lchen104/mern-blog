@@ -79,7 +79,7 @@ const Blog = ({blog, deleteBlog, toggleUpdate, updateBlog, handleUpdate, updateF
         </IconButton>
             <Typography id="modal-modal-description" sx={{ mt: 2 }}>
           <Box>
-        <Typography variant='h6' sx={{paddingBottom: 1 }}>Update Blog</Typography>
+        <Typography align='center' variant='h6' sx={{paddingBottom: 2 }}>Update Blog</Typography>
         <form onSubmit={handleUpdateSubmit}>
             <TextField 
               required

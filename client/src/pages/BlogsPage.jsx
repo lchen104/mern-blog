@@ -6,9 +6,32 @@ import { useState, useEffect } from 'react';
 import BlogsList from "../components/BlogsList";
 import UpdateBlog from "../components/UpdateBlog";
 import CreateBlog from "../components/CreateBlog";
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
+
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 600,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
 
 const BlogsPage = () => {
 
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  const [buttonState, setButtonState] = useState(false);
   // state
   const [blogs, setBlogs] = useState(null);
   
@@ -74,7 +97,8 @@ const BlogsPage = () => {
     } catch (error) {
       console.log(error)
     }
-
+    // close the modal window after creating new blog
+    handleClose()
   }
 
   // delete blog
@@ -106,7 +130,7 @@ const BlogsPage = () => {
   // toggle update
   const toggleUpdate = (blog) => {
       // console.log(blog)
-
+      setButtonState(true)
       // set state on update form
       setUpdateForm({
         _id: blog._id,
@@ -114,6 +138,9 @@ const BlogsPage = () => {
         date: blog.date,
         body: blog.body,
       })
+
+      // set button back to Create New Blog state
+      // setButtonState(false);
   }
 
   const updateBlog = async (e) => {
@@ -148,30 +175,94 @@ const BlogsPage = () => {
         date: '',
         body: '',
       })
+      
   }
-
+console.log(blogs)
   return (
-    <div>
+    <div className='container' style={{display: 'flex', height: '80vh'}}>
 
+      <div className='aside' style={{marginRight: '10px', padding: '0px 10px', width: '200px', display: 'block', justifyContent: 'center', border: '1px solid lightgrey', borderRadius: '5px'}}>
+        <h4>Archives</h4>
+        <div>Blog 1</div>
+        <div>Blog 2</div>
+        <div>Blog 3</div>
+      </div>
 
-        <UpdateBlog 
+      <div className='main' style={{width: '600px'}}>
+        
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+
+          <Box sx={style}>
+          <IconButton
+          aria-label="close"
+          onClick={handleClose}
+          sx={{
+            position: 'absolute',
+            right: 8,
+            top: 8,
+            color: (theme) => theme.palette.grey[500],
+          }}
+        >
+          <CloseIcon />
+        </IconButton>
+            <UpdateBlog 
+                updateForm={updateForm} 
+                updateBlog={updateBlog} 
+                handleUpdate={handleUpdate} 
+            />
+
+            <CreateBlog 
+                updateForm={updateForm} 
+                createForm={createForm} 
+                handleSubmit={handleSubmit} 
+                handleChange={handleChange} 
+            />
+
+          </Box>
+        </Modal>
+
+        {/* <UpdateBlog 
             updateForm={updateForm} 
             updateBlog={updateBlog} 
             handleUpdate={handleUpdate} 
-        />
+        /> */}
 
-        <CreateBlog 
-            updateForm={updateForm} 
-            createForm={createForm} 
-            handleSubmit={handleSubmit} 
-            handleChange={handleChange} 
-        />
+        {/* Display only if no blogs found */}
+        { 
+          (
+            blogs === null || blogs.length <= 0) && (
+            <CreateBlog 
+                updateForm={updateForm} 
+                createForm={createForm} 
+                handleSubmit={handleSubmit} 
+                handleChange={handleChange} 
+            />
+          )
+        }
+
+        { 
+          (
+            blogs === null || blogs.length > 0) && (
+            <Button color='createBtn' fullWidth size='large' variant='contained' type='submit' onClick={handleOpen}>{!buttonState ? 'Create New Blog' : 'Update Blog'}</Button>
+          )
+        }
 
         <BlogsList 
             blogs={blogs} 
             deleteBlog={deleteBlog} 
             toggleUpdate={toggleUpdate} 
+            updateForm={updateForm}
+            updateBlog={updateBlog}
+            handleUpdate={handleUpdate}
+            setButtonState={setButtonState}
         />
+        
+      </div>
     </div>
   )
 }

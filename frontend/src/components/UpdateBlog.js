@@ -17,7 +17,7 @@ const UpdateBlog = ({updateForm, updateBlog, handleUpdate}) => {
 
   return (
     <Box>
-        <Typography variant='h6' sx={{paddingBottom: 1 }}>Update Blog</Typography>
+        <Typography align='center' variant='h6' sx={{paddingBottom: 2 }}>Update Blog</Typography>
         <form onSubmit={updateBlog}>
             <TextField 
               label='Title'

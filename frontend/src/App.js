@@ -6,20 +6,18 @@ import BlogsPage from "./pages/BlogsPage";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from './pages/SignupPage';
 import LogoutPage from './pages/LogoutPage';
+import MainPage from './pages/MainPage';
 
 import RequireAuth from './components/RequireAuth';
 import Footer from './components/Footer';
 
 import Button from '@mui/material/Button';
-import { Typography, Box, AppBar, Card, CardActions, CardContent, CardMedia, CssBaseline, Grid, Toolbar, Container } from '@mui/material';
+import { Typography, Box, AppBar, CssBaseline, Toolbar, Container } from '@mui/material';
 
 import * as React from 'react';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 
-import LoginIcon from '@mui/icons-material/Login';
-import LogoutIcon from '@mui/icons-material/Logout';
-import HomeIcon from '@mui/icons-material/Home';
 import PersonIcon from '@mui/icons-material/Person';
 
 import { ThemeProvider } from '@mui/material/styles';
@@ -135,7 +133,7 @@ function App() {
                       <BlogsPage />
                     </RequireAuth>} 
                   />
-                
+                  <Route path='/' element={<MainPage />} />
                   <Route path='/login' element={<LoginPage loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
                   <Route path='/signup' element={<SignupPage />} />
                   <Route path='/logout' element={<LogoutPage loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />

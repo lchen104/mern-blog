@@ -17,9 +17,10 @@ const CreateBlog = ({updateForm, handleSubmit, handleChange, createForm}) => {
 
     return (
         <Box>
-            <Typography variant='h6' sx={{paddingBottom: 1 }}>Create Blog</Typography>
+            <Typography align='center' variant='h6' sx={{paddingBottom: 2 }}>Create Blog</Typography>
             <form onSubmit={handleSubmit}>
                 <TextField 
+                    required
                     label='Title'
                     fullWidth 
                     size='small' 
@@ -29,8 +30,9 @@ const CreateBlog = ({updateForm, handleSubmit, handleChange, createForm}) => {
                     type="text" name="title" 
                     placeholder="Enter Title..." 
                 />
-
+                
                 <TextField 
+                    required
                     label='Blog'
                     fullWidth 
                     size='small' 
@@ -42,7 +44,7 @@ const CreateBlog = ({updateForm, handleSubmit, handleChange, createForm}) => {
                     rows="8" 
                     placeholder="Enter Blog..." 
                 />
-                <Button fullWidth size='large' variant='contained' type='submit'><CreateIcon /> Create Blog</Button>
+                <Button fullWidth size='large' variant='contained' type='submit'><CreateIcon /> Add Blog</Button>
             </form>
         </Box>
     )

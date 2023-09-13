@@ -177,9 +177,9 @@ const BlogsPage = () => {
       })
       
   }
-
+console.log(blogs)
   return (
-    <div className='container' style={{display: 'flex'}}>
+    <div className='container' style={{display: 'flex', height: '80vh'}}>
 
       <div className='aside' style={{marginRight: '10px', padding: '0px 10px', width: '200px', display: 'block', justifyContent: 'center', border: '1px solid lightgrey', borderRadius: '5px'}}>
         <h4>Archives</h4>
@@ -189,7 +189,7 @@ const BlogsPage = () => {
       </div>
 
       <div className='main' style={{width: '600px'}}>
-        <Button color='createBtn' fullWidth size='large' variant='contained' type='submit' onClick={handleOpen}>{!buttonState ? 'Create New Blog' : 'Update Blog'}</Button>
+        
         <Modal
           open={open}
           onClose={handleClose}
@@ -232,12 +232,25 @@ const BlogsPage = () => {
             handleUpdate={handleUpdate} 
         /> */}
 
-        {/* <CreateBlog 
-            updateForm={updateForm} 
-            createForm={createForm} 
-            handleSubmit={handleSubmit} 
-            handleChange={handleChange} 
-        /> */}
+        {/* Display only if no blogs found */}
+        { 
+          (
+            blogs === null || blogs.length <= 0) && (
+            <CreateBlog 
+                updateForm={updateForm} 
+                createForm={createForm} 
+                handleSubmit={handleSubmit} 
+                handleChange={handleChange} 
+            />
+          )
+        }
+
+        { 
+          (
+            blogs === null || blogs.length > 0) && (
+            <Button color='createBtn' fullWidth size='large' variant='contained' type='submit' onClick={handleOpen}>{!buttonState ? 'Create New Blog' : 'Update Blog'}</Button>
+          )
+        }
 
         <BlogsList 
             blogs={blogs} 

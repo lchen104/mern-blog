@@ -6,6 +6,8 @@ import { Box } from '@mui/material';
 import { TextField } from '@mui/material';
 import { Typography } from '@mui/material';
 import LoginIcon from '@mui/icons-material/Login';
+import LockOutlinedIcon from '@mui/icons-material/Login';
+import Avatar from '@mui/material/Avatar';
 
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
@@ -25,10 +27,14 @@ const Login = ({loginForm, handleLoginChange, login}) => {
   }
 
   return (
-    <Box width='550px'>
+    <Box width='550px' height='80vh' align='center'>
+      <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+        <LockOutlinedIcon />
+      </Avatar>
     <Typography variant='h6' sx={{paddingBottom: 1 }}>Login</Typography>
     <form onSubmit={handleLogin}>
         <TextField 
+            required
             label='Email'
             fullWidth 
             size='small' 
@@ -41,6 +47,7 @@ const Login = ({loginForm, handleLoginChange, login}) => {
         />
 
         <TextField 
+            required
             label='Password'
             fullWidth 
             size='small' 

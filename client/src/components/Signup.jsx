@@ -7,6 +7,8 @@ import { TextField } from '@mui/material';
 import { Typography } from '@mui/material';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
 
+import Avatar from '@mui/material/Avatar';
+
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
@@ -26,10 +28,14 @@ const Signup = ({signupForm, handleSignupChange, signup}) => {
     }
 
   return (
-    <Box width='550px'>
+    <Box width='550px' height='80vh' align='center'>
+        <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+            <HowToRegIcon />
+        </Avatar>
         <Typography variant='h6' sx={{paddingBottom: 1 }}>Signup</Typography>
         <form onSubmit={handleSignup}>
             <TextField 
+                required
                 label='Name'
                 fullWidth 
                 size='small' 
@@ -42,6 +48,7 @@ const Signup = ({signupForm, handleSignupChange, signup}) => {
             />
 
             <TextField 
+                required
                 label='Email'
                 fullWidth 
                 size='small' 
@@ -54,6 +61,7 @@ const Signup = ({signupForm, handleSignupChange, signup}) => {
             />
 
             <TextField 
+                required
                 label='Password'
                 fullWidth 
                 size='small' 
