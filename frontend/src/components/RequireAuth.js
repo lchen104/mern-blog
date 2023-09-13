@@ -16,7 +16,8 @@ const RequireAuth = (props) => {
     }
 
     if (props.loggedIn === false) {
-        return <Navigate to="/login" />
+        // goto mainpage at root when not logged in
+        return <Navigate to="/main" />
     }
 
     return (

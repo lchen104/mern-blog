@@ -133,7 +133,7 @@ function App() {
                       <BlogsPage />
                     </RequireAuth>} 
                   />
-                  <Route path='/' element={<MainPage />} />
+                  <Route path='/main' element={<MainPage />} />
                   <Route path='/login' element={<LoginPage loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
                   <Route path='/signup' element={<SignupPage />} />
                   <Route path='/logout' element={<LogoutPage loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />

@@ -179,7 +179,7 @@ const BlogsPage = () => {
   }
 console.log(blogs)
   return (
-    <div className='container' style={{display: 'flex', height: '80vh'}}>
+    <div className='container' style={{display: 'flex'}}>
 
       <div className='aside' style={{marginRight: '10px', padding: '0px 10px', width: '200px', display: 'block', justifyContent: 'center', border: '1px solid lightgrey', borderRadius: '5px'}}>
         <h4>Archives</h4>
