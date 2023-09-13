@@ -36,6 +36,7 @@ const LoginPage = ({setLoggedIn, loggedIn}) => {
 
         } catch (error) {
             console.log(error)
+            alert('You are not authorized!')
         }
 
     }

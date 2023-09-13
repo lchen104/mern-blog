@@ -37,6 +37,7 @@ const SignupPage = () => {
           console.log(signup)
         } catch (error) {
           console.log(error)
+          alert('Sorry, registration failed')
         }
 
     }
