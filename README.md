@@ -1,103 +1,130 @@
 # Introduction
-Welcome to .ateM
-This is a basic blog site which will evolve into a full blown social media website by adding addiitonal features and improving on current features.
+Welcome to .ateM, 
+A blog site which can evolve into a full blown social media website by adding additonal features and improving upon current features. You can login, and register using jsonwebtoken authentication. Passwords are encrypted using Bcrypt and saved to MongoDB in the cloud. Design is utilizing Material UI's framework which has a clean and simple design. I have included both Vite and Create React App frontend. Feel free to download and use the code as you please. If you have any suggestions, let me know.
 
 # Technologies Used
+## GitHub for version control and repository
+- [GitHub] (https://github.com/)
+
+
+## CI/CD Deployment (Work in progress)
+- [Heroku] (https://id.heroku.com/login)
+
 
 ## Backend
-- Mongoose: [https://mongoosejs.com/docs/index.html]
+- [Mongoose] (https://mongoosejs.com/docs/index.html)
 ```
 npm i --save mongoose
 ```
 
 
-- Express: [https://expressjs.com/en/starter/installing.html]
+### Express is a Web Application Framework used for the backend
+- [Express] (https://expressjs.com/en/starter/installing.html)
 ```
 npm i --save express
 ```
 
 
-- Dotenv: [https://www.npmjs.com/package/dotenv]
+### To store password, api keys and sensitive data out of our code
+- [Dotenv] (https://www.npmjs.com/package/dotenv)
 ```
 npm i --save dotenv nodemon
 ```
 
 
 ### Nodemon will restart server after each code change to prevent us from manually restarting
-- Nodemon; [https://nodemon.io/]
+- [Nodemon] (https://nodemon.io/)
 ```
 npm i --save nodemon
 ```
 
 
 ### Gives users the ability to upload images
-- Multer: [https://github.com/expressjs/multer#readme]
+- [Multer] (https://github.com/expressjs/multer#readme)
 ```
 npm i --save multer
 ```
 
 
 ### Provides a Connect/Express middleware that can be used to enable CORS with various options
-- Cors: [https://github.com/expressjs/cors#readme]
+- [Cors] (https://github.com/expressjs/cors#readme)
 ```
 npm i --save cors
 ```
 
 
-## Frontend
+## Frontend frameworks using vite or create-react-app
+### To run Vite 
+- client folder: Vite
+```
+npm run dev
+```
 
-# frontend frameworks using vite or create-react-app
-client folder: vite: npm run dev
-frontend folder: create-react-app: npm start
 
-# fetch data from mondoDB
-https://axios-http.com/docs/intro
+### To run create-react-app
+- frontend folder: create-react-app
+```
+npm start
+```
 
+
+### Fetch data from MondoDB
+[MongoDB] (https://axios-http.com/docs/intro)
+```
 npm i --save axios
+```
 
-# encrypt user password
-https://www.npmjs.com/package/bcryptjs
-https://github.com/dcodeIO/bcrypt.js
 
+### Encrypt user password
+- [Bcryptjs] (https://www.npmjs.com/package/bcryptjs)
+- [BcryptjsGitHub] (https://github.com/dcodeIO/bcrypt.js)
+```
 npm i --save bcryptjs
+```
 
-# install jsonwebtoken
-https://www.npmjs.com/package/jsonwebtoken
 
+### Authenticate with jsonwebtoken
+- [JSONWEBTOKEN] (https://www.npmjs.com/package/jsonwebtoken)
+```
 npm i --save jsonwebtoken
+```
 
-# install cookie
-https://www.npmjs.com/package/cookie-parser
-https://github.com/expressjs/cookie-parser
 
+### Cookies to store authentication token
+- [Cookies] (https://www.npmjs.com/package/cookie-parser)
+- [CookiesGitHub] (https://github.com/expressjs/cookie-parser)
+```
 npm i --save cookie-parser
+```
 
-# react-router
-https://v5.reactrouter.com/web/guides/quick-start
 
+### React-Router for routing pages
+- [React-Router] (https://v5.reactrouter.com/web/guides/quick-start)
+```
 npm i --save react-router-dom
+```
 
-# material UI for design/layout
-https://mui.com/material-ui/getting-started/installation/
 
+#  Layout and Design Framework
+### Material UI 
+- [Material UI] (https://mui.com/material-ui/getting-started/installation/)
+```
 npm install @mui/material 
 npm install @emotion/react 
 npm install @emotion/styled
 npm install @fontsource/roboto
 npm install @mui/icons-material
-
-# multer to handle image uploads (WORK IN PROGRESS)
-https://www.npmjs.com/package/multer
-
-npm i --save multer
+```
 
 
 # Getting Started
 - Trello Board [https://trello.com/b/litvpJqZ/mern-blog-app]
 - GitHub [https://github.com/lchen104/mern-blog]
 
+
 # Unsolved Problems
 - Working on adding the ability for users to upload an image to blog about.
+
 
 # Future Enhancements
 - Add an image to blog about (Currently working on)
