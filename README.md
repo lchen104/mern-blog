@@ -2,6 +2,24 @@
 Welcome to .ateM, 
 A blog site which can evolve into a full blown social media website by adding additonal features and improving upon current features. You can login, and register using jsonwebtoken authentication. Passwords are encrypted using Bcrypt and saved to MongoDB in the cloud. Design is utilizing Material UI's framework which has a clean and simple design. I have included both Vite and Create React App frontend. Feel free to download and use the code as you please. If you have any suggestions, let me know.
 
+![Main Page](imgs/mainpage.png)
+
+![Login Page](imgs/login.png)
+
+![Signup Page](imgs/signup.png)
+
+![Logout Page](imgs/loggedout-page.png)
+
+![Initial Loggedin Page](imgs/initial-loggedin.png)
+
+![Blog Page](imgs/blog-page.png)
+
+![Multiple Blogs](imgs/blogs-page.png)
+
+![Create Blog](imgs/create-blog.png)
+
+![Update Blog](imgs/update-blog.png)
+
 # Technologies Used
 ## GitHub for version control and repository
 - [GitHub] (https://github.com/)
