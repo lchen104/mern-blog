@@ -1,6 +1,6 @@
 # Introduction
 Welcome to .ateM, 
-A blog site which can evolve into a full blown social media website by adding additonal features and improving upon current features. You can login, and register using jsonwebtoken authentication. Passwords are encrypted using Bcrypt and saved to MongoDB in the cloud. Design is utilizing Material UI's framework which has a clean and simple design. I have included both Vite and Create React App frontend. Feel free to download and use the code as you please. If you have any suggestions, let me know.
+A blog site which can evolve into a full blown social media website by adding additonal features and improving upon current features. You can login, and register using jsonwebtoken authentication. Passwords are encrypted using Bcrypt and saved to MongoDB in the cloud. The Layout/Design is created utilizing Material UI's framework which has a clean and simple appearance. I have included both Vite and Create React App frontend. Feel free to download and use the code as you please. If you have any suggestions, let me know.
 
 # Main Page
 ![Main Page](imgs/mainpage.png)
