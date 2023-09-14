@@ -11,6 +11,9 @@ const blogSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Enter something to blog...'],
     },
+    image: {
+        type: String,
+    },
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',

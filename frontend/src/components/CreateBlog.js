@@ -11,6 +11,21 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
+import { styled } from '@mui/material/styles';
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+
+const VisuallyHiddenInput = styled('input')({
+    clip: 'rect(0 0 0 0)',
+    clipPath: 'inset(50%)',
+    height: 1,
+    overflow: 'hidden',
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    whiteSpace: 'nowrap',
+    width: 1,
+  });
+
 const CreateBlog = ({updateForm, handleSubmit, handleChange, createForm}) => {
 
     if (updateForm._id) return <></>;
@@ -27,16 +42,40 @@ const CreateBlog = ({updateForm, handleSubmit, handleChange, createForm}) => {
                     sx={{paddingBottom: 1 }} 
                     onChange={handleChange} 
                     value={createForm.title} 
-                    type="text" name="title" 
+                    type="text" 
+                    name="title" 
                     placeholder="Enter Title..." 
-                />
-                
-                <TextField 
-                    required
-                    label='Blog'
+                /> 
+                {/* <TextField 
+                    // required
+                    // label='Image'
                     fullWidth 
                     size='small' 
                     sx={{paddingBottom: 1 }} 
+                    onChange={handleChange} 
+                    value={createForm.image} 
+                    type="file" 
+                    accept="image/*"
+                    name="image" 
+                    // placeholder="Select Image" 
+                /> */}
+
+                <Button 
+                    component="label" 
+                    fullWidth 
+                    variant="outlined" 
+                    startIcon={<CloudUploadIcon />}
+                >
+                    Upload Image
+                    <VisuallyHiddenInput type="file" />
+                </Button>
+
+                <TextField 
+                    required
+                    // label='Blog'
+                    fullWidth 
+                    size='small' 
+                    sx={{paddingBottom: 1, paddingTop: 1 }} 
                     multiline
                     onChange={handleChange} 
                     value={createForm.body} 

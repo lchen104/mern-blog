@@ -1,40 +1,50 @@
-# backend using express
-npm run dev
+# Introduction
+Welcome to .ateM
+This is a basic blog site which will evolve into a full blown social media website by adding addiitonal features and improving on current features.
 
-# mongoose
-https://mongoosejs.com/docs/index.html
-https://mongoosejs.com/docs/queries.html
-https://mongoosejs.com/docs/tutorials/dates.html
+# Technologies Used
 
+## Backend
+- Mongoose: [https://mongoosejs.com/docs/index.html]
+```
 npm i --save mongoose
+```
 
 
-# express
-https://expressjs.com/en/starter/installing.html
-
+- Express: [https://expressjs.com/en/starter/installing.html]
+```
 npm i --save express
+```
 
 
-# dotenv
-https://www.npmjs.com/package/dotenv
-
+- Dotenv: [https://www.npmjs.com/package/dotenv]
+```
 npm i --save dotenv nodemon
+```
 
 
-# nodemon
-https://nodemon.io/
-
+### Nodemon will restart server after each code change to prevent us from manually restarting
+- Nodemon; [https://nodemon.io/]
+```
 npm i --save nodemon
+```
 
 
+### Gives users the ability to upload images
+- Multer: [https://github.com/expressjs/multer#readme]
+```
+npm i --save multer
+```
 
 
-
-
-# install CORS package for providing a Connect/Express middleware that can be used to enable CORS with various options
-https://github.com/expressjs/cors#readme
+### Provides a Connect/Express middleware that can be used to enable CORS with various options
+- Cors: [https://github.com/expressjs/cors#readme]
+```
 npm i --save cors
+```
 
+
+## Frontend
 
 # frontend frameworks using vite or create-react-app
 client folder: vite: npm run dev
@@ -75,3 +85,23 @@ npm install @emotion/react
 npm install @emotion/styled
 npm install @fontsource/roboto
 npm install @mui/icons-material
+
+# multer to handle image uploads (WORK IN PROGRESS)
+https://www.npmjs.com/package/multer
+
+npm i --save multer
+
+
+# Getting Started
+- Trello Board [https://trello.com/b/litvpJqZ/mern-blog-app]
+- GitHub [https://github.com/lchen104/mern-blog]
+
+# Unsolved Problems
+- Working on adding the ability for users to upload an image to blog about.
+
+# Future Enhancements
+- Add an image to blog about (Currently working on)
+- Add user name on welcome message in navbar
+- Add user friends who are also registered so user can also view friends blogs on the users main feed 
+- Add user likes for each blog
+- Added user comments for each blog
