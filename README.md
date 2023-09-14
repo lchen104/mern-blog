@@ -126,13 +126,12 @@ npm install @mui/icons-material
 - GitHub [https://github.com/lchen104/mern-blog]
 
 
-# Unsolved Problems
-- Working on adding the ability for users to upload an image to blog about.
-
-
-# Future Enhancements
+# Unsolved Problems (Additional Features)
 - Add an image upload feature to blog about (Currently working on)
 - Add user name on welcome message in navbar (Currently working on)
+- Add blog archives and list previous blogs on aside navbar on the left column (Currently working on)
+
+# Future Enhancements
 - Add user profile section
 - Add user avatar upload feature and display when logged in
 - Add user friends who are also registered so user can also view friends blogs on the users main feed 
