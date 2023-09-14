@@ -23,9 +23,7 @@ const MainPage = () => {
           Start Blogging
         </Typography>
         <Typography variant="h5" align="center" color="text.secondary" paragraph>
-          Something short and leading about the collection below—its contents,
-          the creator, etc. Make it short and sweet, but not too short so folks
-          don&apos;t simply skip over it entirely.
+        We believe in the power of words to inspire, educate, and connect. Whether you're a seasoned writer or just getting started, .ateM is the canvas for your thoughts, stories, and experiences...
         </Typography>
         <Stack
           sx={{ pt: 4 }}
