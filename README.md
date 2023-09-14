@@ -131,8 +131,10 @@ npm install @mui/icons-material
 
 
 # Future Enhancements
-- Add an image to blog about (Currently working on)
-- Add user name on welcome message in navbar
+- Add an image upload feature to blog about (Currently working on)
+- Add user name on welcome message in navbar (Currently working on)
+- Add user profile section
+- Add user avatar upload feature and display when logged in
 - Add user friends who are also registered so user can also view friends blogs on the users main feed 
 - Add user likes for each blog
 - Added user comments for each blog
